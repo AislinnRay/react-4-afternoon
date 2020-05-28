@@ -23,14 +23,14 @@ export default class ClassList extends Component {
 
   render() {
     const students = this.state.students.map((studentElement, index) => (
-      <Link to={`/student/{student.id}`} key={index}><h3>{ studentElement.first_name} {studentElement.last_name}</h3></Link>
+      <Link to={`/student/${studentElement.id}`} key={index}><h3>{ studentElement.first_name} {studentElement.last_name}</h3></Link>
     ));
     return (
       <div className="box">
         <h1>{this.props.match.params.class}</h1>
         <h2>ClassList:</h2>
         {students}
-
+        <button onClick={() => this.props.history.goBack()}>Back</button>
       </div>
     );
   }
